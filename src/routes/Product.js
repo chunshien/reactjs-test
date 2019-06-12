@@ -1,41 +1,43 @@
 import React from 'react';
 import ProductItem from '../components/ProductItem.js';
 
+import { connect } from "react-redux";
+import { getProduct } from "../actions";
+import { bindActionCreators } from "redux";
+
 class Product extends React.Component {
     constructor(props) {
         super(props);
         this.state = {productTotal: 24};
     }
-    render() {
+    componentDidMount(){
+        this.props.actions.getProduct()
+    }
+
+    renderProduct(){
+        //console.log('renderProduct',this.props.product)
+        const products = this.props.product.filter(product=>product.id<15)
+        return products.map((product,index)=> { 
+            return (
+                <div key = {product.id} className='productItem'>
+                    <ProductItem                         
+                        productImage={product.product_image}
+                        productName={product.product_name}
+                        productDescription={product.description}
+                        productPrice={product.price}
+                    />
+                </div>
+            )        
+        })
+    }
+
+    render() {        
         return (
             <div>
                 <div className='title'>All Products</div>
                 <div className='sub-title'>{this.state.productTotal} Products</div>
                 <div className='sub-page'>8 per page</div>
-                <div className='productItem'>
-                    <ProductItem 
-                        productImage={'https://dummyimage.com/318x336.png/5fa2dd/ffffff'}
-                        productName={'name'}
-                        productDescription={'desc'}
-                        productPrice={'16.99'}
-                    />
-                </div>
-                <div className='productItem'>
-                    <ProductItem 
-                        productImage={'http://dummyimage.com/317x312.png/ff4444/ffffff'}
-                        productName={'name'}
-                        productDescription={'desc'}
-                        productPrice={'16.99'}
-                    />
-                </div>  
-                <div className='productItem'>
-                    <ProductItem 
-                        productImage={'http://dummyimage.com/350x318.png/dddddd/000000'}
-                        productName={'name'}
-                        productDescription={'desc'}
-                        productPrice={'16.99'}
-                    />
-                </div>              
+                {this.renderProduct()}                     
                 <style jsx ='true'>{`
                 .title {                    
                     color: #323232;
@@ -77,7 +79,7 @@ class Product extends React.Component {
                 /* desktop */
                 @media only screen and (min-width: 992px) {
                     .productItem{
-                        width: 450px;
+                        width: 350px;
                     }
                 }
             `}</style>
@@ -85,5 +87,17 @@ class Product extends React.Component {
         );
     }
   }
-  
-  export default Product;
+
+  function mapStateToProps(state) {  
+    let product = state.product
+    
+    return {
+        product: product,
+    };
+  }
+  function mapDispatchToProps(dispatch) {
+    return {
+      actions: { dispatch, ...bindActionCreators({ getProduct }, dispatch) }
+    };
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(Product);

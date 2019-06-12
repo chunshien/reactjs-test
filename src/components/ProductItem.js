@@ -5,7 +5,7 @@ class ProductItem extends React.Component  {
         return (
             <div style={{backgroundColor: 'white', margin: 10}}>
                 <div>
-                    <img className='productImage' src={this.props.productImage} />
+                    <img className='productImage' alt={this.props.productName} src={this.props.productImage} />
                 </div>
                 <hr style={{backgroundColor: '#f0f0f0', height: 1, border: 0, margin: 0}}/>
                 <div style={{padding: 10}}>
@@ -16,8 +16,8 @@ class ProductItem extends React.Component  {
                 <style jsx='true'>{`                                    
                     .productImage {
                         width: 90%;
-                        max-width: 400px;
-                        height: 350px;
+                        max-width: 300px;
+                        height: 250px;
                         object-fit: cover;
                         padding: 5% 5px;
                     }
@@ -29,11 +29,19 @@ class ProductItem extends React.Component  {
                     .productName{
                         color: #323232;
                         font-size: 14px;
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
 
                     .productDescription{
                         color: #b1b1b1;
                         font-size: 13px;
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
 
                     .productPrice{
@@ -46,8 +54,4 @@ class ProductItem extends React.Component  {
         );
     }
   }
-  const divStyle = {
-    margin: '40px',
-    border: '5px solid pink'
-  };
   export default ProductItem;
