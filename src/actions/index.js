@@ -8,4 +8,24 @@ export function getProduct(){
             })                      
     }
 }
-  
+
+export function getActivePageProduct(index){
+    return{
+        type: 'GET_ACTIVE_PAGE_PRODUCT',
+        index
+    }
+}
+
+export function setActivePage(index){
+    return{
+        type: 'SET_ACTIVE_PAGE',
+        index
+    }
+}
+
+export function setItemPerPageCount(itemCountPerPage){
+    return{
+        type: 'SET_ITEM_PER_PAGE_COUNT',
+        itemCountPerPage
+    }
+}

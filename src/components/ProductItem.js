@@ -16,8 +16,8 @@ class ProductItem extends React.Component  {
                 <style jsx='true'>{`                                    
                     .productImage {
                         width: 90%;
-                        max-width: 300px;
-                        height: 250px;
+                        max-width: 250px;
+                        height: 200px;
                         object-fit: cover;
                         padding: 5% 5px;
                     }
