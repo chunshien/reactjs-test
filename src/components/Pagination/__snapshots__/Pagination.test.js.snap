@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - Pagination Test Test Pagination - page 1 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="disabled-page-navigation"
+    onClick={[Function]}
+  >
+    &lt; Previous page
+  </span>
+  <span
+    className="active-page"
+    onClick={[Function]}
+  >
+    1
+  </span>
+  <span
+    className=""
+    onClick={[Function]}
+  >
+    2
+  </span>
+  <span
+    className=""
+    onClick={[Function]}
+  >
+    3
+  </span>
+  <span
+    className="enabled-page-navigation"
+    onClick={[Function]}
+  >
+    Next page &gt;
+  </span>
+  <style
+    jsx="true"
+  >
+    
+                    .pagination {  
+                        margin-top: 30px;
+                        text-align: right;  
+                        -khtml-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        -webkit-touch-callout: none;
+                        -webkit-user-select: none;                      
+                    }  
+                    .pagination span{
+                        padding: 5px 10px;
+                        min-width: 20px;
+                        cursor: pointer;
+                    }                    
+                    .active-page{
+                        background-color: white;
+                        border-bottom: 5px solid black;
+                    }
+                    .enabled-page-navigation{
+                        color: black;
+                    }
+                    .disabled-page-navigation{
+                        color: #dddddd;
+                        cursor: not-allowed !important;
+                    }
+                
+  </style>
+</div>
+`;
+
+exports[`Component - Pagination Test Test Pagination - page 2 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="enabled-page-navigation"
+    onClick={[Function]}
+  >
+    &lt; Previous page
+  </span>
+  <span
+    className=""
+    onClick={[Function]}
+  >
+    1
+  </span>
+  <span
+    className="active-page"
+    onClick={[Function]}
+  >
+    2
+  </span>
+  <span
+    className=""
+    onClick={[Function]}
+  >
+    3
+  </span>
+  <span
+    className="enabled-page-navigation"
+    onClick={[Function]}
+  >
+    Next page &gt;
+  </span>
+  <style
+    jsx="true"
+  >
+    
+                    .pagination {  
+                        margin-top: 30px;
+                        text-align: right;  
+                        -khtml-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        -webkit-touch-callout: none;
+                        -webkit-user-select: none;                      
+                    }  
+                    .pagination span{
+                        padding: 5px 10px;
+                        min-width: 20px;
+                        cursor: pointer;
+                    }                    
+                    .active-page{
+                        background-color: white;
+                        border-bottom: 5px solid black;
+                    }
+                    .enabled-page-navigation{
+                        color: black;
+                    }
+                    .disabled-page-navigation{
+                        color: #dddddd;
+                        cursor: not-allowed !important;
+                    }
+                
+  </style>
+</div>
+`;
+
+exports[`Component - Pagination Test Test Pagination - page 3 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="enabled-page-navigation"
+    onClick={[Function]}
+  >
+    &lt; Previous page
+  </span>
+  <span
+    className=""
+    onClick={[Function]}
+  >
+    1
+  </span>
+  <span
+    className=""
+    onClick={[Function]}
+  >
+    2
+  </span>
+  <span
+    className="active-page"
+    onClick={[Function]}
+  >
+    3
+  </span>
+  <span
+    className="disabled-page-navigation"
+    onClick={[Function]}
+  >
+    Next page &gt;
+  </span>
+  <style
+    jsx="true"
+  >
+    
+                    .pagination {  
+                        margin-top: 30px;
+                        text-align: right;  
+                        -khtml-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        -webkit-touch-callout: none;
+                        -webkit-user-select: none;                      
+                    }  
+                    .pagination span{
+                        padding: 5px 10px;
+                        min-width: 20px;
+                        cursor: pointer;
+                    }                    
+                    .active-page{
+                        background-color: white;
+                        border-bottom: 5px solid black;
+                    }
+                    .enabled-page-navigation{
+                        color: black;
+                    }
+                    .disabled-page-navigation{
+                        color: #dddddd;
+                        cursor: not-allowed !important;
+                    }
+                
+  </style>
+</div>
+`;
+
+exports[`Component - Pagination Test renders Pagination without crashing 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="disabled-page-navigation"
+    onClick={[Function]}
+  >
+    &lt; Previous page
+  </span>
+  <span
+    className="active-page"
+    onClick={[Function]}
+  >
+    1
+  </span>
+  <span
+    className="enabled-page-navigation"
+    onClick={[Function]}
+  >
+    Next page &gt;
+  </span>
+  <style
+    jsx="true"
+  >
+    
+                    .pagination {  
+                        margin-top: 30px;
+                        text-align: right;  
+                        -khtml-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        -webkit-touch-callout: none;
+                        -webkit-user-select: none;                      
+                    }  
+                    .pagination span{
+                        padding: 5px 10px;
+                        min-width: 20px;
+                        cursor: pointer;
+                    }                    
+                    .active-page{
+                        background-color: white;
+                        border-bottom: 5px solid black;
+                    }
+                    .enabled-page-navigation{
+                        color: black;
+                    }
+                    .disabled-page-navigation{
+                        color: #dddddd;
+                        cursor: not-allowed !important;
+                    }
+                
+  </style>
+</div>
+`;

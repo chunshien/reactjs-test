@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# snaphot
+src/components/Product/__snapshots__/
+src/routes/__snapshots__/
