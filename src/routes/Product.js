@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getProduct, setActivePage, getActivePageProduct, setItemPerPageCount } from "../actions";
 import { bindActionCreators } from "redux";
 
+const API_ENDPOINT = 'https://raw.githubusercontent.com/BookingBoss/reactjs-test/master/productsData.json'
 class Product extends React.Component {
     constructor(props) {
         super(props);        
@@ -11,7 +12,7 @@ class Product extends React.Component {
         this.handlePageCountChange = this.handlePageCountChange.bind(this);        
     }
     componentDidMount(){
-        this.props.actions.getProduct()
+        this.props.actions.getProduct(API_ENDPOINT)
     }
 
     handlePageCountChange(e){        

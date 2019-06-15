@@ -23,8 +23,7 @@ class Pagination extends React.Component  {
     }
     render() {
         const {activePage, totalItem, itemCountPerPage} = this.props;
-        const lastPage = Math.ceil(totalItem / itemCountPerPage);
-        console.log(lastPage)
+        const lastPage = Math.ceil(totalItem / itemCountPerPage);        
         const firstIndex = activePage > 1 ? 
                     (activePage < lastPage ? activePage - 1 : activePage - 2)
                     : 1;
@@ -34,8 +33,7 @@ class Pagination extends React.Component  {
         const lastIndex = activePage < lastPage ? 
                     (activePage > 1 ? activePage + 1 : activePage + 2) 
                     : lastPage;
-
-        console.log(firstIndex,secondIndex,lastIndex)
+        
         return (
             <div className="pagination">
                 <span 

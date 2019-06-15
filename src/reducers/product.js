@@ -12,7 +12,7 @@ const product = (state = initialState, action) => {
                 ...state,                
                 allProducts: action.data,
                 currentPageProduct: action.data.slice(0, state.itemCountPerPage),
-                totalItem: action.data.length,                
+                totalItem: action.data.length,
                 activePage: 1
             }
         case 'SET_ACTIVE_PAGE':        
@@ -20,7 +20,7 @@ const product = (state = initialState, action) => {
                 ...state,                                
                 activePage: action.index
             }
-        case 'GET_ACTIVE_PAGE_PRODUCT':           
+        case 'GET_ACTIVE_PAGE_PRODUCT':          
             return {
                 ...state,                                
                 currentPageProduct: state.allProducts.slice((action.index - 1) * state.itemCountPerPage, action.index * state.itemCountPerPage),
