@@ -22,45 +22,47 @@ class Pagination extends React.Component  {
         this.props.onChanged(index)
     }
     render() {
-        const {totalItem, itemCountPerPage} = this.props;
+        const {activePage, totalItem, itemCountPerPage} = this.props;
         const lastPage = Math.ceil(totalItem / itemCountPerPage);
-        
-        const firstIndex = this.props.activePage > 1 ? 
-                    (this.props.activePage < lastPage ? this.props.activePage - 1 : this.props.activePage - 2)
+        console.log(lastPage)
+        const firstIndex = activePage > 1 ? 
+                    (activePage < lastPage ? activePage - 1 : activePage - 2)
                     : 1;
-        const secondIndex = this.props.activePage > 1 ? 
-                    (this.props.activePage < lastPage ? this.props.activePage : this.props.activePage - 1) 
+        const secondIndex = activePage > 1 ? 
+                    (activePage < lastPage ? activePage : activePage - 1) 
                     : 2;
-        const lastIndex = this.props.activePage < lastPage ? 
-                    (this.props.activePage > 1 ? this.props.activePage + 1 : this.props.activePage + 2) 
+        const lastIndex = activePage < lastPage ? 
+                    (activePage > 1 ? activePage + 1 : activePage + 2) 
                     : lastPage;
+
+        console.log(firstIndex,secondIndex,lastIndex)
         return (
             <div className="pagination">
                 <span 
                     onClick={this.previousClick} 
-                    className={this.props.activePage === 1 ? 'disabled-page-navigation' : 'enabled-page-navigation'}>
+                    className={activePage === 1 ? 'disabled-page-navigation' : 'enabled-page-navigation'}>
                     {'< Previous page'}
                 </span>
                 <span 
                     onClick={()=>this.pageClick(firstIndex)} 
-                    className={this.props.activePage === 1 ? 'active-page' : ''}>
+                    className={activePage === 1 ? 'active-page' : ''}>
                     {firstIndex}
                 </span>
                 {totalItem / itemCountPerPage >= 2 &&
                     <span 
                         onClick={()=>this.pageClick(secondIndex)} 
-                        className={this.props.activePage > 1 && this.props.activePage < lastPage ? 'active-page' : ''}>
+                        className={activePage > 1 && activePage < lastPage ? 'active-page' : ''}>
                         {secondIndex}
                     </span>
                 }
                 {totalItem / itemCountPerPage >= 3 &&
                     <span 
                         onClick={()=>this.pageClick(lastIndex)} 
-                        className={this.props.activePage === lastPage ? 'active-page' : ''}>
+                        className={activePage === lastPage ? 'active-page' : ''}>
                         {lastIndex}
                     </span>
                 }
-                <span onClick={this.nextClick} className={this.props.activePage !== lastPage ? 'enabled-page-navigation' : 'disabled-page-navigation'}>
+                <span onClick={this.nextClick} className={activePage !== lastPage ? 'enabled-page-navigation' : 'disabled-page-navigation'}>
                     {'Next page >'}
                 </span>
                 <style jsx ='true'>{`
