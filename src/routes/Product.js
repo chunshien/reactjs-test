@@ -15,8 +15,8 @@ class Product extends React.Component {
         this.props.actions.getProduct(API_ENDPOINT)
     }
 
-    handlePageCountChange(e){        
-        this.props.actions.setItemPerPageCount(e.target.value)
+    handlePageCountChange(val){        
+        this.props.actions.setItemPerPageCount(val)
         this.getActivePageProduct(1)        
     }   
 
@@ -33,7 +33,7 @@ class Product extends React.Component {
     render() {
         return (            
             <ProductList 
-                product = {this.props.product}
+                products = {this.props.products}
                 activePage = {this.props.activePage}
                 totalItem = {this.props.totalItem}
                 itemCountPerPage = {this.props.itemCountPerPage}
@@ -46,7 +46,7 @@ class Product extends React.Component {
 
   function mapStateToProps(state) {  
     return {
-        product: state.product.currentPageProduct,
+        products: state.product.currentPageProduct,
         activePage: state.product.activePage,
         totalItem: state.product.totalItem,
         itemCountPerPage: state.product.itemCountPerPage

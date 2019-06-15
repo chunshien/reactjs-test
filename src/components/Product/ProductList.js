@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ProductItem from './ProductItem.js';
-import Pagination from '../Pagination.js';
+import Pagination from '../Pagination/Pagination.js';
 
 class ProductList extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class ProductList extends React.Component {
     }
 
     handlePageCountChange(e){  
-        this.props.onHandlePageCountChanged(e);        
+        this.props.onHandlePageCountChanged(e.target.value);        
     }
 
     handlePageChanged(index){
@@ -19,19 +19,22 @@ class ProductList extends React.Component {
     }
 
     renderProduct(){        
-        const products = this.props.product
-        return products.map((product,index)=> { 
-            return (
-                <div key = {product.id} className='productItem'>
-                    <ProductItem                         
-                        productImage={product.product_image}
-                        productName={product.product_name}
-                        productDescription={product.description}
-                        productPrice={product.price}
-                    />
-                </div>
-            )        
-        })
+        const {products} = this.props
+        
+        if(products && products.length > 0){
+            return products.map((product)=> { 
+                return (
+                    <div key = {product.id} className='productItem'>
+                        <ProductItem                         
+                            productImage={product.product_image}
+                            productName={product.product_name}
+                            productDescription={product.description}
+                            productPrice={product.price}
+                        />
+                    </div>
+                )        
+            })
+        } 
     }
 
     renderPagination(){        
@@ -131,6 +134,10 @@ class ProductList extends React.Component {
             </div>
         );
     }
-  }
-
+}
+ProductList.defaultProps = {
+    activePage: 1,
+    totalItem: 0,
+    itemCountPerPage: 8
+}
 export default (ProductList);
