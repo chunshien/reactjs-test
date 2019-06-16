@@ -8,7 +8,7 @@ class ProductItem extends React.Component  {
                     <img className='productImage' alt={this.props.productName} src={this.props.productImage} />
                 </div>
                 <hr style={{backgroundColor: '#f0f0f0', height: 1, border: 0, margin: 0}}/>
-                <div style={{padding: 10}}>
+                <div style={{padding: 20}}>
                     <div className='productName'>{this.props.productName}</div>
                     <div className='productDescription'>{this.props.productDescription}</div>
                     <div className='productPrice'>{this.props.productPrice}</div>

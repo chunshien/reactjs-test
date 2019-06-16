@@ -103,7 +103,7 @@ class ProductList extends React.Component {
                     float: left;                 
                 }
                 .productItem{
-                    float: left;   
+                    float: left;
                 }
 
                 /* mobile only */
@@ -119,15 +119,15 @@ class ProductList extends React.Component {
                     }
                 }
                 /* small desktop */
-                @media only screen and (min-width: 768px) and (max-width: 1099px){
+                @media only screen and (min-width: 768px) and (max-width: 1199px){
                     .productItem{
                         width: 33%;
                     }
                 }
                 /* desktop */
-                @media only screen and (min-width: 1100px) {
-                    .productItem{
-                        width: 300px;
+                @media only screen and (min-width: 1200px) {
+                    .productItem{                        
+                        max-width: 300px;
                     }
                 }
             `}</style>
