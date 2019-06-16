@@ -24,4 +24,5 @@ yarn-error.log*
 
 # snaphot
 src/components/Product/__snapshots__/
+src/components/Pagination/__snapshots__/
 src/routes/__snapshots__/

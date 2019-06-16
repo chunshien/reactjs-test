@@ -1,11 +1,26 @@
 import React from 'react';
 import ProductList from './ProductList.js';
 import renderer from 'react-test-renderer';
+import TestUtils from 'react-dom/test-utils';
+const testData = require('../../reducers/Product/test-data')
 
 describe('Component - ProductList Test', () => {
-    it('renders ProductList without crashing', () => {
+    it('renders ProductList without data without crashing', () => {
         const component = renderer.create(
             <ProductList/>    
+        );
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot()        
+    });
+
+    it('renders ProductList with data without crashing', () => {
+        const component = renderer.create(
+            <ProductList
+                products = {testData.slice(0, 8)}
+                activePage = {1}
+                totalItem = {20}
+                itemCountPerPage = {8}
+            />    
         );
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot()        
@@ -25,6 +40,7 @@ describe('Component - ProductList Test', () => {
                 activePage = {1}
                 totalItem = {1}
                 itemCountPerPage = {8}
+                onHandlePageCountChanged={onHandlePageCountChangedMock}
             />    
         );
         let tree = component.toJSON();
@@ -39,6 +55,33 @@ describe('Component - ProductList Test', () => {
         expect(header.children[2].props.className).toEqual('item-per-page-count')
        
         let content = tree.children[1]
-        expect(content.children[0].props.className).toEqual('productItem')        
-    });    
+        expect(content.children[0].props.className).toEqual('productItem')
+    });   
+
+    //mock props function call
+    let ProductListElement
+    let onHandlePageCountChangedMock = jest.fn();
+    let onHandlePageChangedMock = jest.fn();
+    beforeAll(function() {
+        ProductListElement = TestUtils.renderIntoDocument(
+            <ProductList 
+                onHandlePageCountChanged={onHandlePageCountChangedMock}
+                onHandlePageChanged={onHandlePageChangedMock}
+            />
+        );
+    });
+    beforeEach(function() {
+        onHandlePageCountChangedMock.mockClear();
+        onHandlePageChangedMock.mockClear();
+    });
+
+    it('Simulate ProductList onHandlePageCountChanged', () => {
+        ProductListElement.props.onHandlePageCountChanged();
+        expect(onHandlePageCountChangedMock).toBeCalled();                
+    });
+
+    it('Simulate ProductList onHandlePageChanged', () => {
+        ProductListElement.props.onHandlePageChanged();
+        expect(onHandlePageChangedMock).toBeCalled();     
+    })
 })
